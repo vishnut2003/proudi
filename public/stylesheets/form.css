@@ -1,0 +1,82 @@
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 10px;
+    width: 100%;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+label {
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #5f5f5f;
+}
+
+.modern-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 15px;
+    border: 1px solid #00000026;
+    border-radius: 6px;
+}
+.modern-input:focus-within {
+    border-color: #ffbc00;
+}
+
+.modern-input i {
+    width: fit-content;
+    color: #c1c1c1;
+    font-size: 11px;
+}
+
+.modern-input input {
+    font-size: 14px;
+    width: 100%;
+    padding: 0;
+    border: 0;
+}
+
+input[type="submit"] {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    border: 0;
+    background: #ffbc00;
+    color: white;
+    border-radius: 5px;
+}
+
+.errmessage {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 7px;
+    border: 1px solid #fd3f3f;
+    background: #ff000024;
+    color: red;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.errmessage i {
+    font-size: 11px;
+}
+
+p.message {
+    font-size: 12px;
+    font-weight: 500;
+}
