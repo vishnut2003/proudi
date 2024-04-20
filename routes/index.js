@@ -4,7 +4,7 @@ const userHelpers = require('../helpers/userHelpers')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Proudi' });
+  res.render('frontend/home');
 });
 
 router.get('/register', (req, res) => {
@@ -23,6 +23,26 @@ router.post('/register', (req, res) => {
       res.render('frontend/register', {
         registerError: true,
         errorMessage: message
+      })
+    })
+})
+
+router.get('/login', (req, res) => {
+  res.render('frontend/login', {
+    loginError: false,
+    errorMessage: null
+  })
+})
+
+router.post('/login', (req, res) => {
+  userHelpers.doLogin(req.body)
+    .then(() => {
+      res.send('Login Done')
+    })
+    .catch((err) => {
+      res.render('frontend/login', {
+        loginError: true,
+        errorMessage: err
       })
     })
 })
