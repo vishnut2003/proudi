@@ -6,6 +6,7 @@
     box-sizing: border-box;
     font-family: 'poppins';
     outline: none;
+    text-decoration: none;
 }
 
 body {

@@ -1,0 +1,33 @@
+.admin-sidebar-title {
+    color: #ffffff;
+    font-size: 21px;
+    text-transform: uppercase;
+    line-height: 25px;
+    font-weight: 800;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ffffff33;
+}
+
+.admin-menus {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.admin-menu {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 5px;
+}
+
+.admin-menu-active {
+    background-color: red;
+}
+
+.admin-menu i {
+    font-size: 13px;
+}

@@ -13,14 +13,14 @@ module.exports = {
             else {
                 newUser.password = await bcrypt.hash(newUser.password, 10)
                 await db.getdb().collection(collections.USER_COLLECTION).insertOne(newUser)
-                resolve()
+                resolve(newUser)
             }
         })
     },
     doLogin: (user) => {
-        const checkPassword = async (userPassword, password, callback) => {
+        const checkPassword = async (userPassword, password, callback, userData) => {
             await bcrypt.compare(userPassword, password).then(async (result) => {
-                await callback(result)
+                await callback(result, userData)
             })
         }
 
@@ -28,15 +28,22 @@ module.exports = {
             const usernameExist = await db.getdb().collection(collections.USER_COLLECTION).findOne({ username: user.username })
             const emailExist = await db.getdb().collection(collections.USER_COLLECTION).findOne({ email: user.username })
             
-            const done = (isLogin) => {
-                if (isLogin) resolve()
+            const done = (isLogin, userData) => {
+                if (isLogin) resolve(userData)
                 else reject('Incorrect password')
             }
             
-            if (usernameExist) checkPassword(user.password, usernameExist.password, done)
-            else if (emailExist) checkPassword(user.password, emailExist.password, done)
+            if (usernameExist) checkPassword(user.password, usernameExist.password, done, usernameExist)
+            else if (emailExist) checkPassword(user.password, emailExist.password, done, emailExist)
             else reject("Email or Username Doesn't Exist")
             
+        })
+    },
+    addUserSession: (user, session) => {
+        return new Promise((resolve, reject) => {
+            session.isLogin = true
+            session.user = user
+            resolve()
         })
     }
 }

@@ -16,8 +16,11 @@ router.get('/register', (req, res) => {
 
 router.post('/register', (req, res) => {
   userHelpers.doRegister(req.body)
-    .then(() => {
-      res.send('Registration success')
+    .then((user) => {
+      userHelpers.addUserSession(user, req.session)
+        .then(() => {
+          res.redirect('/admin')
+        })
     })
     .catch( message => {
       res.render('frontend/register', {
@@ -36,8 +39,11 @@ router.get('/login', (req, res) => {
 
 router.post('/login', (req, res) => {
   userHelpers.doLogin(req.body)
-    .then(() => {
-      res.send('Login Done')
+    .then((user) => {
+      userHelpers.addUserSession(user, req.session)
+        .then(() => {
+          res.redirect('/admin')
+        })
     })
     .catch((err) => {
       res.render('frontend/login', {

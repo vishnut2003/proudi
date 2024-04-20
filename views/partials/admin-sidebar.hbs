@@ -1,0 +1,21 @@
+<h2 class="admin-sidebar-title">Dashdoard</h2>
+<div class="admin-menus">
+    <a href="/admin">
+        <div class="admin-menu {{#if isDashboard}}admin-menu-active{{/if}}">
+            <i class="fa-solid fa-gauge"></i>
+            <p>Dashboard</p>
+        </div>
+    </a>
+    <a href="/admin/users">
+        <div class="admin-menu {{#if isUsers}}admin-menu-active{{/if}}">
+            <i class="fa-solid fa-user"></i>
+            <p>Users</p>
+        </div>
+    </a>
+    <a href="/admin/products">
+        <div class="admin-menu {{#if isProducts}}admin-menu-active{{/if}}">
+            <i class="fa-brands fa-product-hunt"></i>
+            <p>Products</p>
+        </div>
+    </a>
+</div>

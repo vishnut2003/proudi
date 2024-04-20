@@ -4,7 +4,8 @@ const hbs = require('express-handlebars')
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const { dbConnect } = require('./config/dbconnection')
+const { dbConnect } = require('./config/dbconnection');
+const session = require('express-session');
 
 var indexRouter = require('./routes/index');
 const adminRouter = require('./routes/admin');
@@ -29,6 +30,12 @@ app.engine('hbs', hbs.engine({
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
+app.use(session({
+  secret: 'HRUIEDG63%HHJF^KDHGDDJD',
+  cookie: { maxAge: 60000 },
+  saveUninitialized: false,
+  resave: false
+}))
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
