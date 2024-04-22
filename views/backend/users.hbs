@@ -1,4 +1,5 @@
 <title>All Users</title>
+<link rel="stylesheet" href="/stylesheets/style.css">
 <link rel="stylesheet" href="/stylesheets/admin/users.css">
 <link rel="stylesheet" href="/stylesheets/admin/admin.css">
 <link rel="stylesheet" href="/stylesheets/admin/admin-sidebar.css">
@@ -7,10 +8,13 @@
 
 <body>
     <div class="admin-container">
-        <div class="admin-sidebar">
-            {{>admin-sidebar}}
+        <div class="admin-sidebar-col">
+            <div class="admin-sidebar">
+                {{>admin-sidebar}}
+            </div>
         </div>
         <div class="admin-content">
+            {{>admin-header}}
             <div class="user-container">
                 <h2 class="admin-heading">Users</h2>
                 <div class="users-table">
@@ -34,13 +38,13 @@
                                         <td>
                                             <input type="checkbox" name="selected">
                                         </td>
-                                        <td>Vishnu</td>
-                                        <td>Vishnu</td>
-                                        <td>vishnu@gmail.com</td>
+                                        <td>{{this.name}}</td>
+                                        <td>{{this.username}}</td>
+                                        <td>{{this.email}}</td>
                                         <td>admin</td>
                                         <td class="action-td">
                                             <a href="#" class="user-edit-btn">Edit</a>
-                                            <a href="/admin/users/delete/120" class="user-delete-btn">Delete</a>
+                                            <a href="/admin/users/delete/{{this.username}}" class="user-delete-btn">Delete</a>
                                         </td>
                                     </tr>
                                 {{/each}}

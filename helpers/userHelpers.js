@@ -55,5 +55,13 @@ module.exports = {
                 reject()
             }
         })
+    },
+    deleteOneUser: (username) => {
+        return new Promise((resolve, reject) => {
+            db.getdb().collection(collections.USER_COLLECTION).deleteOne({username: username})
+                .then(() => {
+                    resolve()
+                })
+        })
     }
 }
