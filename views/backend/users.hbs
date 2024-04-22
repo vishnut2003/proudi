@@ -1,15 +1,62 @@
-    <title>All Users</title>
-    <link rel="stylesheet" href="/stylesheets/admin/users.css">
-    <link rel="stylesheet" href="/stylesheets/admin/admin.css">
-    <link rel="stylesheet" href="/stylesheets/admin/admin-sidebar.css">
+<title>All Users</title>
+<link rel="stylesheet" href="/stylesheets/admin/users.css">
+<link rel="stylesheet" href="/stylesheets/admin/admin.css">
+<link rel="stylesheet" href="/stylesheets/admin/admin-sidebar.css">
+<link rel="stylesheet" href="/stylesheets/tables.css">
 </head>
+
 <body>
     <div class="admin-container">
         <div class="admin-sidebar">
             {{>admin-sidebar}}
         </div>
         <div class="admin-content">
-            
+            <div class="user-container">
+                <h2 class="admin-heading">Users</h2>
+                <div class="users-table">
+                    <form method="post">
+                        <table class="users-view-table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <input type="checkbox" name="selected">
+                                    </th>
+                                    <th>Full Name</th>
+                                    <th>Username</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each allUsers}}
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" name="selected">
+                                        </td>
+                                        <td>Vishnu</td>
+                                        <td>Vishnu</td>
+                                        <td>vishnu@gmail.com</td>
+                                        <td>admin</td>
+                                        <td class="action-td">
+                                            <a href="#" class="user-edit-btn">Edit</a>
+                                            <a href="/admin/users/delete/120" class="user-delete-btn">Delete</a>
+                                        </td>
+                                    </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                        <div class="bulk-action">
+                            <select class="user-bulk-action" name="user_action" required>
+                                <option value="">- Select Action -</option>
+                                <option value="edit">Edit</option>
+                                <option value="delete">Delete</option>
+                            </select>
+                            <input type="submit" class="user-bulk-action-btn">
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </body>

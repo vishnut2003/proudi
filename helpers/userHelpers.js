@@ -45,5 +45,15 @@ module.exports = {
             session.user = user
             resolve()
         })
+    },
+    getAllUsers: () => {
+        return new Promise(async (resolve, reject) => {
+            const users = await db.getdb().collection(collections.USER_COLLECTION).find({}).toArray()
+            if (users) {
+                resolve(users)
+            }else {
+                reject()
+            }
+        })
     }
 }

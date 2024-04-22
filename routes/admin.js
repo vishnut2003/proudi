@@ -1,4 +1,5 @@
 const express = require('express');
+const userHelpers = require('../helpers/userHelpers');
 const router = express.Router();
 
 router.get('/', (req, res) => {
@@ -8,9 +9,20 @@ router.get('/', (req, res) => {
 })
 
 router.get('/users', (req, res) => {
-    res.render('backend/users', {
-        isUsers: true
-    })
+    userHelpers.getAllUsers()
+        .then((users) => {
+            res.render('backend/users', {
+                isUsers: true,
+                allUsers: users
+            })
+        })
+        .catch(() => {
+
+        })
+    
+})
+router.get('/users/delete/:id', (req, res) => {
+    res.send(req.params.id)
 })
 
 router.get('/products', (req, res) => {
