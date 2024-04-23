@@ -6,7 +6,8 @@
 }
 
 .users-table {
-    max-width: 100%;
+    width: 100%;
+    overflow: auto;
 }
 
 select.user-bulk-action {
