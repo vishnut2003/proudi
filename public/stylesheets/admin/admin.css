@@ -6,6 +6,12 @@
 
 .admin-sidebar-col {
     width: 290px;
+    overflow: hidden;
+}
+@media screen and (max-width: 650px) {
+    .admin-sidebar-col {
+        width: 0%;
+    }
 }
 
 .admin-sidebar {
@@ -48,6 +54,9 @@ header.admin-header {
 
 .page-title {
     width: 50%;
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
 .page-title h2 {
@@ -68,6 +77,7 @@ header.admin-header {
     justify-content: space-between;
     align-items: center;
     gap: 6px;
+    cursor: pointer;
 }
 
 .user-info img {

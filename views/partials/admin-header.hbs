@@ -1,17 +1,20 @@
 <header class="admin-header">
     <div class="inner-admin-header">
         <div class="page-title">
+            <i class="fa-solid fa-bars" id="admin-menu-toggle"></i>
             <h2>{{page_title}}</h2>
         </div>
         <div class="user-info-col">
-            <div class="user-info">
+            <div class="user-info" id="admin-user-info">
                 <img src="/images/website/avatar.png" alt="avatar">
                 <p>{{user_nickname}} <br> <span>admin</span></p>
             </div>
-            <div class="user-info-hover">
+            <div class="user-info-hover" id="user-info-hover">
                 <a>Edit Account</a>
                 <a href="/logout">Logout!</a>
             </div>
         </div>
     </div>
 </header>
+
+<script defer src="/javascript/admin/admin.js"></script>
