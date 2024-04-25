@@ -14,7 +14,15 @@ $(document).ready(() => {
     })
 
     const admin_menu_toggle = $('#admin-menu-toggle')
-    const admin_sidebar = $('#admin-sidebar')
+    const admin_sidebar = $('#admin-sidebar-jq')
+    const admin_menu_close = $("#admin-sidebar-close")
+
+    admin_menu_toggle.click(() => {
+        admin_sidebar.css('width', '250px');
+    })
+    admin_menu_close.click(() => {
+        admin_sidebar.css('width', '0')
+    })
 
     
 })

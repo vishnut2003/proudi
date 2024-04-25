@@ -11,10 +11,14 @@
 @media screen and (max-width: 650px) {
     .admin-sidebar-col {
         width: 0%;
+        position: absolute;
+        height: 100%;
+        transition: .5s;
     }
 }
 
 .admin-sidebar {
+    min-width: 213px;
     width: 100%;
     height: 100%;
     padding: 20px 15px;
@@ -50,6 +54,16 @@ header.admin-header {
     justify-content: space-between;
     align-items: center;
     width: 100%;
+}
+
+#admin-menu-toggle {
+    display: none;
+}
+
+@media screen and (max-width: 650px) {
+    #admin-menu-toggle {
+        display: block;
+    }
 }
 
 .page-title {
