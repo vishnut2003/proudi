@@ -44,3 +44,9 @@ a.user-delete-btn {
     display: flex;
     gap: 5px;
 }
+
+/* Edit User Style Start */
+
+.edit-uaer-container {
+    width: 260px;
+}

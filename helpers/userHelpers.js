@@ -63,5 +63,14 @@ module.exports = {
                     resolve()
                 })
         })
+    },
+    getOneUser: (username) => {
+        return new Promise(async (resolve, reject) => {
+            await db.getdb().collection(collections.USER_COLLECTION).findOne({username: username})
+                .then((user) => {
+                    if(user) resolve(user)
+                    else reject()
+                })
+        })
     }
 }

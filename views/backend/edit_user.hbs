@@ -1,0 +1,47 @@
+<title>All Users</title>
+
+<link rel="stylesheet" href="/stylesheets/form.css">
+<link rel="stylesheet" href="/stylesheets/admin/users.css">
+<link rel="stylesheet" href="/stylesheets/admin/admin.css">
+<link rel="stylesheet" href="/stylesheets/admin/admin-sidebar.css">
+</head>
+
+<body>
+    <div class="admin-container">
+        <div class="admin-sidebar-col" id="admin-sidebar-jq">
+            <div class="admin-sidebar">
+                {{>admin-sidebar}}
+            </div>
+        </div>
+        <div class="admin-content">
+            {{>admin-header}}
+            <div class="user-container">
+                <h2 class="admin-heading">Edit {{user.username}}</h2>
+                <div class="edit-uaer-container">
+                    <form action="/admin/users/edit" method="post">
+
+                        <div class="form-field">
+                            <label for="username">username</label>
+                            <input type="text" name="username" value="{{user.username}}" disabled>
+                        </div>
+                        <div class="form-field">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" value="{{user.email}}">
+                        </div>
+                        <div class="form-field">
+                            <label for="fname">First Name</label>
+                            <input type="text" name="fname" value="{{user.fname}}">
+                        </div>
+                        <div class="form-field">
+                            <label for="lname">Last Name</label>
+                            <input type="text" name="lname" value="{{lname}}">
+                        </div>
+                        
+                        <input type="submit" class="admin-submit-btn">
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

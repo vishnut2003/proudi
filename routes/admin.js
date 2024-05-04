@@ -33,6 +33,24 @@ router.get('/users/delete/:id', (req, res) => {
             res.redirect('/admin/users')
         })
 })
+router.get('/users/edit/:username', (req, res) => {
+    const userNickname = req.session.user ? req.session.user.username : null
+    userHelpers.getOneUser(req.params.username)
+        .then((user) => {
+            res.render('backend/edit_user', {
+                user,
+                isUsers: true,
+                page_title: `Edit User`,
+                user_nickname: userNickname
+            })
+        })
+        .catch(() => {
+            res.send('User not exist')
+        })
+})
+router.post('/users/edit', (req, res) => {
+    res.send(req.body)
+})
 
 router.get('/products', (req, res) => {
     res.render('backend/products', {
